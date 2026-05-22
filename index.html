@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バッシュおみくじ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🏀 バッシュおみくじ 🏀</h1>
+        <p>初心者向け！あなたにぴったりの定番バッシュを引こう</p>
+    </header>
+
+    <main>
+        <section class="omikuji-section">
+            <div id="box-container" class="box-container">
+                <div id="shoebox" class="shoebox">
+                    <div class="shoebox-lid"></div>
+                    <div class="shoebox-body"></div>
+                    <p class="box-text">タップして開ける</p>
+                </div>
+            </div>
+
+            <div id="result-container" class="result-container hidden">
+                <div class="result-card">
+                    <span class="badge">今日の一足</span>
+                    <h2 id="result-brand">メーカー名</h2>
+                    <h3 id="result-name">バッシュ名</h3>
+                    <div class="image-placeholder">
+                        <span class="shoe-icon">👟</span>
+                    </div>
+                    <p id="result-desc">ここにバッシュの性能や特徴の説明文が入ります。</p>
+                    
+                    <div class="evaluation-buttons">
+                        <p>このバッシュは気に入った？</p>
+                        <button class="btn btn-like" onclick="evaluateShoe('気に入った')">気に入った！</button>
+                        <button class="btn btn-meh" onclick="evaluateShoe('まあまあ')">まあまあ</button>
+                        <button class="btn btn-dislike" onclick="evaluateShoe('興味ない')">興味ない</button>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="retry-btn" class="btn-retry hidden" onclick="resetOmikuji()">もう一度引く</button>
+        </section>
+
+        <hr>
+
+        <section class="mypage-section">
+            <h2>📁 マイページ（気に入ったリスト）</h2>
+            <p class="sub-text">おみくじで「気に入った！」を選んだバッシュが日付順に並びます。</p>
+            <div id="saved-list" class="saved-list">
+                <p class="empty-message">まだお気に入りのバッシュはありません。</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+/* 基本スタイル */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #ff6b35;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+section {
+    margin: 30px 0;
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 40px 0;
+}
+
+/* 共通ボタン */
+.btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+/* 箱（アニメーション用） */
+.box-container {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.shoebox {
+    position: relative;
+    width: 180px;
+    height: 100px;
+    background-color: #4a4a4a; /* シンプルなグレーの箱 */
+    border-radius: 4px;
+    transition: transform 0.3s;
+}
+
+.shoebox:hover {
+    transform: scale(1.05);
+}
+
+.shoebox-lid {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 190px;
+    height: 25px;
+    background-color: #333333;
+    border-radius: 4px;
+    transition: transform 0.5s ease-in-out;
+    transform-origin: top;
+}
+
+/* 箱が開くアニメーション */
+.shoebox.open .shoebox-lid {
+    transform: translateY(-40px) rotate(-15deg);
+    opacity: 0.7;
+}
+
+.shoebox.open {
+    transform: scale(0.8);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.box-text {
+    position: absolute;
+    width: 100%;
+    bottom: -40px;
+    left: 0;
+    font-weight: bold;
+    color: #666;
+}
+
+/* 結果表示 */
+.hidden {
+    display: none !important;
+}
+
+.result-container {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.result-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.badge {
+    background: #ff6b35;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 150px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.shoe-icon {
+    font-size: 60px;
+}
+
+.evaluation-buttons {
+    margin-top: 25px;
+    border-top: 1px stroke #eee;
+    padding-top: 15px;
+}
+
+.btn-like { background-color: #4caf50; color: white; }
+.btn-meh { background-color: #ff9800; color: white; }
+.btn-dislike { background-color: #9e9e9e; color: white; }
+
+.btn-retry {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* マイページ（保存リスト） */
+.saved-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.empty-message {
+    grid-column: 1 / -1;
+    color: #999;
+    font-style: italic;
+}
+
+.saved-item {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    text-align: left;
+    font-size: 13px;
+}
+
+.saved-item .item-date {
+    font-size: 10px;
+    color: #999;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.saved-item .item-image {
+    width: 100%;
+    height: 80px;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 4px;
+}
+
+.saved-item .item-brand {
+    font-weight: bold;
+    color: #666;
+    margin-top: 5px;
+}
+
+.saved-item .item-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
