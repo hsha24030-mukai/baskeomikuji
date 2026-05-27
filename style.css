@@ -149,21 +149,21 @@ hr {
     font-size: 60px;
 }
 
-/* 【追加】「保存しました」などの通知テキスト用（サイズアップ・太字） */
+/* 「保存しました」などの通知テキスト用（サイズアップ・太字） */
 .message-display {
-    font-size: 24px;         /* 文字を大きく */
-    font-weight: 900;        /* かなり太く */
+    font-size: 24px;         
+    font-weight: 900;        
     margin: 20px 0;
     padding: 10px;
     border-radius: 8px;
     animation: popIn 0.3s ease-out;
 }
 .message-success {
-    color: #2e7d32;          /* 保存時の緑色文字 */
+    color: #2e7d32;          
     background-color: #e8f5e9;
 }
 .message-warn {
-    color: #c62828;          /* すでに保存されている時の赤色文字 */
+    color: #c62828;          
     background-color: #ffebee;
 }
 
@@ -212,6 +212,7 @@ hr {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     text-align: left;
     font-size: 13px;
+    position: relative; /* 削除ボタンの基準位置にするため追加 */
 }
 
 .saved-item .item-date {
@@ -219,6 +220,26 @@ hr {
     color: #999;
     display: block;
     margin-bottom: 5px;
+    padding-right: 20px; /* 削除ボタンと重ならないように余白を追加 */
+}
+
+/* 【追加】削除ボタン（❌）のスタイル */
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+.delete-btn:hover {
+    color: #c62828;
+    background-color: #ffebee;
 }
 
 .saved-item .item-image {
